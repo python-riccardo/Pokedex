@@ -1,14 +1,14 @@
 import java.io.Serializable;
-public class Acqua extends Pokemon implements Serializable{
+public class Fuoco extends Pokemon implements Serializable{
     /*
-    * All'interno del costruttore di un pokemon generico di tipo acqua creaiamo i tre attacchi comuni ai pokemon di tipo Acqua 
+    * All'interno del costruttore di un pokemon generico di tipo fuoco creaiamo i tre attacchi comuni ai pokemon di tipo Fuoco 
     */
     private Attacco a1 = new Attacco("Azione", 20);
-    private Attacco a2 = new Attacco("Pistolacqua", 40);
-    private Attacco a3 = new Attacco("Idrondata", 60);
-    
-    public Acqua(int id, String nome, int salute){
-        super(id, nome, "Acqua", salute, 1);
+    private Attacco a2 = new Attacco("Sventolata di Fiamme", 40);
+    private Attacco a3 = new Attacco("Brucia Culo", 60);
+
+    public Fuoco(int id, String nome, int salute){
+        super(id, nome, "Fuoco", salute, 1);
 
         listaAttacchi.add(a1);
         listaAttacchi.add(a2);

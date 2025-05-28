@@ -1,4 +1,5 @@
-public class Attacco{
+import java.io.Serializable;
+public class Attacco implements Serializable{
     private String nome;
     private int danno;
 
