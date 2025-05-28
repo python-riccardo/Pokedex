@@ -6,8 +6,8 @@ public class PokemonDAOimpl implements PokemonDAO{
     private Vector<Pokemon> listaPokemon = new Vector<>();
     private String file;
 
-    public PokemonDAOimpl(){
-        file = "pokedex.dat";
+    public PokemonDAOimpl(String file){
+        this.file = file;
     }
     @Override
     public void aggiungiPokemon(Pokemon p){

@@ -3,9 +3,16 @@ public class Main {
         System.out.println("Benvenuto nel Pokedex!");
 
         System.out.println("Questa applicazione salverà nella memoria di massa i dati del pokedex.");
-        System.out.println("Il salvataggio si trova in questa cartella, nel formato .DAT");
+        System.out.println("Puoi caricare un salvataggio (1) o crearne uno nuovo (2).");
+        System.out.println("ATTENZIONE!\nSe viene caricato un salvataggio che non esiste, verrà creato un nuovo salvataggio");
+        int sceltainiziale = ChiediDati.ChiediIntero("Digita la tua scelta");
 
-        PokemonDAO pokemonDAO = new PokemonDAOimpl();
+        
+        String nomefile = ChiediDati.ChiediStringa("Inserisci il nome del file di salvataggio (senza estensione)");
+        nomefile = nomefile + ".dat";
+
+        PokemonDAO pokemonDAO = new PokemonDAOimpl(nomefile);
+        pokemonDAO.carica();
         Menu menuApp = new Menu();
 
         Opzione opz1 = new Opzione("1","Digitare 1 per aggiungere un Pokemon.");
@@ -19,6 +26,7 @@ public class Main {
         menuApp.aggiungi(opz2);
         menuApp.aggiungi(opz3);
         menuApp.aggiungi(opz4);
+        menuApp.aggiungi(opz5);
         menuApp.aggiungi(opz0);
 
         boolean uscita = false;
@@ -65,7 +73,12 @@ public class Main {
                     pokemonDAO.togliPokemon(id);
                     break;
                 case 3:
-                    System.out.println(pokemonDAO);
+                    if (pokemonDAO.toString() == ""){
+                        System.out.println("Non ci sono Pokemon nel Pokedex!");
+                    }
+                    else{
+                        System.out.println(pokemonDAO);
+                    }
                     break;
                 case 4:
                     id = ChiediDati.ChiediIntero("Inserire id del Pokemon da cercare");
